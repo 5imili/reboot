@@ -7,11 +7,23 @@ import (
 	"fmt"
 	"github.com/leopoldxx/go-utils/trace"
 	"github.com/leopoldxx/go-utils/middleware"
+	"github.com/5imili/reboot/server/utils"
 )
 
 type task struct{
 	opt *controller.Options
 }
+
+/*
+{
+"code":200,
+"msg" :"suceess"
+}
+{
+"code":400,
+"msg" :"error message",
+}
+**/
 
 func New(opt *controller.Options) controller.Controller{
 	return &task{opt:opt}
@@ -20,11 +32,15 @@ func New(opt *controller.Options) controller.Controller{
 func (t *task) Register(router *mux.Router){
 	///reboot/api/v1/namespace/{xx}/tasks/{task}
 	subrouter := router.PathPrefix("/namespaces/{namespace}").Subrouter()
-
+	subrouter.Use(utils.LoggingMiddleware)
+	//subrouter.Methods("GET").Path("/tasks/{task}").HandlerFunc(
+	//	middleware.RecoverWithTrace("getTask").HandlerFunc(
+	//		utils.Authorization().HandlerFunc(t.getTask),
+	//	),
+	//)
 	subrouter.Methods("GET").Path("/tasks/{task}").HandlerFunc(
 		middleware.RecoverWithTrace("getTask").HandlerFunc(t.getTask),
-		)
-
+	)
 	subrouter.Methods("GET").Path("/tasks").HandlerFunc(
 		middleware.RecoverWithTrace("listTask").HandlerFunc(t.listTask),
 		)
@@ -43,7 +59,13 @@ func (t *task) Register(router *mux.Router){
 func (t *task) getTask(w http.ResponseWriter, r *http.Request){
 	tracer := trace.GetTraceFromRequest(r)
 	tracer.Info("call getTask")
-	fmt.Fprintln(w,"call getTask")
+	err := t.opt.Service.GetTask(r.Context())
+	if err !=nil {
+		tracer.Error(err)
+		utils.CommReply(w,r,http.StatusBadRequest,err.Error())
+		return
+	}
+	utils.CommReply(w,r, http.StatusOK, "success")
 }
 
 func (t *task) listTask(w http.ResponseWriter, r *http.Request){
@@ -56,6 +78,7 @@ func (t *task) createTask(w http.ResponseWriter, r *http.Request){
 	tracer := trace.GetTraceFromRequest(r)
 	tracer.Info("call createTask")
 	fmt.Fprintln(w,"call createTask")
+	utils.CommReply(w,r,http.StatusAccepted,"Accept")
 }
 
 func (t *task) deleteTask(w http.ResponseWriter, r *http.Request){

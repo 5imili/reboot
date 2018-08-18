@@ -23,6 +23,7 @@ import (
 	"github.com/5imili/reboot/server"
 	"github.com/leopoldxx/go-utils/trace/glog"
 	"time"
+	"github.com/5imili/reboot/server/controller"
 )
 
 var cfgFile string
@@ -53,6 +54,7 @@ to quickly create a Cobra application.`,
 
 		s := server.New(server.Options{
 			ListenAddr:viper.GetString("server.listen"),
+			CtrlOpts:&controller.Options{},
 		})
 
 		glog.Fatal(s.ListenAndServer())
