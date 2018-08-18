@@ -26,8 +26,6 @@ func New(opt Options) Server {
 	r := mux.NewRouter()
 	//add router
 	v1Router := r.PathPrefix("/reboot/api/v1").Subrouter()
-	//v2Router := r.PathPrefix("/reboot/api/v2").Subrouter()
-
 	task.New(opt.CtrlOpts).Register(v1Router)
 	return &server{
 		opt: opt,

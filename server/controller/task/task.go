@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"fmt"
 	"github.com/leopoldxx/go-utils/trace"
+	"github.com/leopoldxx/go-utils/middleware"
 )
 
 type task struct{
@@ -19,11 +20,24 @@ func New(opt *controller.Options) controller.Controller{
 func (t *task) Register(router *mux.Router){
 	///reboot/api/v1/namespace/{xx}/tasks/{task}
 	subrouter := router.PathPrefix("/namespaces/{namespace}").Subrouter()
-	subrouter.Methods("GET").Path("/tasks/{task}").HandlerFunc(t.getTask)
-	subrouter.Methods("GET").Path("/tasks").HandlerFunc(t.listTask)
-	subrouter.Methods("POST").Path("/tasks").HandlerFunc(t.createTask)
-	subrouter.Methods("DELETE").Path("/tasks/{task}").HandlerFunc(t.deleteTask)
-	subrouter.Methods("PUT").Path("/tasks/{task}").HandlerFunc(t.updateTask)
+
+	subrouter.Methods("GET").Path("/tasks/{task}").HandlerFunc(
+		middleware.RecoverWithTrace("getTask").HandlerFunc(t.getTask),
+		)
+
+	subrouter.Methods("GET").Path("/tasks").HandlerFunc(
+		middleware.RecoverWithTrace("listTask").HandlerFunc(t.listTask),
+		)
+	subrouter.Methods("POST").Path("/tasks").HandlerFunc(
+		middleware.RecoverWithTrace("createTask").HandlerFunc(t.createTask),
+		)
+
+	subrouter.Methods("DELETE").Path("/tasks/{task}").HandlerFunc(
+		middleware.RecoverWithTrace("deleteTask").HandlerFunc(t.deleteTask),
+		)
+	subrouter.Methods("PUT").Path("/tasks/{task}").HandlerFunc(
+		middleware.RecoverWithTrace("updateTask").HandlerFunc(t.updateTask),
+		)
 }
 
 func (t *task) getTask(w http.ResponseWriter, r *http.Request){
