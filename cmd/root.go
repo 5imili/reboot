@@ -54,6 +54,7 @@ to quickly create a Cobra application.`,
 		s := server.New(server.Options{
 			ListenAddr:viper.GetString("server.listen"),
 		})
+
 		glog.Fatal(s.ListenAndServer())
 	},
 }
