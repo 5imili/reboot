@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/5imili/reboot/pkg/dao"
+	"github.com/5imili/reboot/pkg/dao/mysql/types"
 )
 
 type Options struct{
@@ -13,7 +14,7 @@ type Operation interface {
 	GetTask(ctx context.Context) error
 	ListTask(ctx context.Context)error
 	DeleteTask(ctx context.Context) error
-	CreateTask(ctx context.Context,namespace string, resource string) error
+	CreateTask(ctx context.Context,namespace string, resource string) (*types.Task, error)
 	UpdateTask(ctx context.Context) error
 }
 
@@ -28,5 +29,5 @@ func New(opt *Options) Operation{
 }
 
 type Task struct{
-	Resource string
+	Resource string `json:"resource"`
 }

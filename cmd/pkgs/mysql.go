@@ -5,6 +5,7 @@ import (
 	"github.com/5imili/reboot/pkg/dao"
 	"sync"
 	"github.com/5imili/reboot/pkg/dao/mysql"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 const(
@@ -22,7 +23,7 @@ func init(){
 
 
 func initDaoDefault(){
-	viper.SetDefault(DaoConnection,"root:root@/reboot?charset=utf-8&parseTime=true")
+	viper.SetDefault(DaoConnection,"root:root@/reboot?charset=utf8&parseTime=true")
 }
 
 func GetDao() dao.Storage{

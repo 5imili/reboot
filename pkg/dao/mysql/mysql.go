@@ -4,6 +4,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/5imili/reboot/pkg/dao"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type Options struct{
