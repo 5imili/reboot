@@ -6,6 +6,8 @@ import (
 	"github.com/5imili/reboot/server/controller/task"
 	"github.com/5imili/reboot/server/controller"
 	"github.com/5imili/reboot/server/service"
+	"github.com/facebookgo/httpdown"
+	"time"
 )
 
 type Options struct{
@@ -47,7 +49,11 @@ func (s *server)ListenAndServer()error{
 		Addr : s.opt.ListenAddr,
 		Handler: s.router,
 	}
-	return httpServer.ListenAndServe()
+	hd := &httpdown.HTTP{
+		StopTimeout: 10 * time.Second,
+		KillTimeout: 1 * time.Second,
+	}
+	return httpdown.ListenAndServe(httpServer, hd)
 }
 
 
