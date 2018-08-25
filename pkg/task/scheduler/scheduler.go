@@ -11,6 +11,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/5imili/reboot/pkg/task/utils"
+	"github.com/zieckey/etcdsync"
 )
 const (
 	defaultPrefix = "/github.com/reboot/pkg/task/scheduler/lock"
@@ -99,7 +100,7 @@ func (m *Manager) Schedule()error{
 			time.Sleep(time.Second)
 			continue
 		}
-		tracer.Info("total get %d pending tasks \n", len(tasks))
+		tracer.Infof("total get %d pending tasks \n", len(tasks))
 		for _, task := range tasks{
 			scheduler , exits := m.schedulers[task.Resource]
 			if !exits{
@@ -114,11 +115,36 @@ func (m *Manager) Schedule()error{
 				tracer := trace.GetTraceFromContext(newCtx)
 				tracer.Info("task start...")
 				//Todo etcd lock
+				lockkey := fmt.Sprintf("%s/%d", m.lockPrefix, task.ID)
+				locker , err := etcdsync.New(lockkey,20, []string{"http://127.0.0.1:2379"})
+				if locker == nil || err != nil {
+					tracer.Error("etcdsync.New failed")
+					return
+				}
+				err = locker.Lock()
+				if err != nil {
+					tracer.Errorf("lock error %v\n",err)
+					return
+				}
+
+				defer func(){
+					time.Sleep(time.Second)
+					err := locker.Unlock()
+					if err != nil {
+						tracer.Errorf("unlock error %v\n",err)
+						return
+					}
+				}()
+
 				newTask, err := m.dao.GetOpenTaskByTaskID(newCtx, task.ID)
 				if err != nil{
+					if err.Error() == "task not found"{
+						return
+					}
 					tracer.Errorf("task can't be scheduled now:%d,err: %v\n",task.ID, err)
 					return
 				}
+
 				err = scheduler.Schedule(newCtx, utils.ConvertDBTaskToSchedulerTask(newTask))
 				if err != nil{
 					if err == context.Canceled{

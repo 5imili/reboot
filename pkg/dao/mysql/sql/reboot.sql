@@ -9,7 +9,6 @@ CREATE TABLE `task` (
   `is_paused` tinyint(4) NOT NULL DEFAULT '0' COMMENT '任务是否在暂停状态',
   `is_skip_paused` tinyint(4) NOT NULL DEFAULT '0' COMMENT '任务是否在跳过暂停标志',
   `is_urgent_skipped` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否紧急跳过',
-  `urgent_skip_comment` varchar(64) NOT NULL DEFAULT '' COMMENT '紧急跳过备注',
   `is_closed` tinyint(4) NOT NULL DEFAULT '0' COMMENT '任务是否已经关闭',
   `is_closed_manually` tinyint(4) NOT NULL DEFAULT '0' COMMENT '手动关掉任务',
   `op_user` varchar(32) NOT NULL DEFAULT '' COMMENT '创建任务的用户',

@@ -157,7 +157,7 @@ func getTaskByField(ctx context.Context, db *sqlx.DB,
 	fields map[types.Field]types.Value) ([]types.Task, error) {
 	const (
 		sql = ` SELECT id,namespace, resource, task_type, spec, status, is_canceled, is_paused, is_skip_paused,
-	is_urgent_skipped, urgent_skip_comment, is_closed, is_closed_manually, op_user, create_time, last_update_time
+	is_urgent_skipped, is_closed, is_closed_manually, op_user, create_time, last_update_time
 FROM task
 WHERE %s
 ORDER BY create_time DESC ;`
