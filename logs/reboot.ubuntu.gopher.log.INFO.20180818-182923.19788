@@ -1,0 +1,15 @@
+Log file created at: 2018/08/18 18:29:23
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 18:29:23.886632   19788 root.go:53] :7878
+INFO     2018-08-18 18:31:40.020447   19788 authenticate_middleware.go:19] tname=[default-trace] tid=[41786fed-c4e8-4326-424c-50f6b7f8f2d7] tduration=[0] /reboot/api/v1/namespaces/chenchao/tasks/mod
+INFO     2018-08-18 18:31:40.020483   19788 trace_handler.go:57] tname=[getTask] tid=[f44d1046-2b78-4d6c-6c88-8070dcf75705] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 18:31:40.020494   19788 task.go:61] tname=[getTask] tid=[f44d1046-2b78-4d6c-6c88-8070dcf75705] tduration=[0] call getTask
+INFO     2018-08-18 18:31:40.020500   19788 task.go:10] tname=[getTask] tid=[f44d1046-2b78-4d6c-6c88-8070dcf75705] tduration=[0] s.GetTask
+INFO     2018-08-18 18:31:40.020559   19788 trace_handler.go:64] tname=[getTask] tid=[f44d1046-2b78-4d6c-6c88-8070dcf75705] tduration=[0] event=[request-out]
+INFO     2018-08-18 18:31:44.216909   19788 authenticate_middleware.go:19] tname=[default-trace] tid=[a7a372ee-62a9-4b4a-7695-df7678e1122f] tduration=[0] /reboot/api/v1/namespaces/chenchao/tasks/mod
+INFO     2018-08-18 18:31:44.216961   19788 trace_handler.go:57] tname=[getTask] tid=[e19fbbe5-b1b8-40c9-512b-6b35c37dab2b] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 18:31:44.217020   19788 task.go:61] tname=[getTask] tid=[e19fbbe5-b1b8-40c9-512b-6b35c37dab2b] tduration=[0] call getTask
+INFO     2018-08-18 18:31:44.217127   19788 task.go:10] tname=[getTask] tid=[e19fbbe5-b1b8-40c9-512b-6b35c37dab2b] tduration=[0] s.GetTask
+INFO     2018-08-18 18:31:44.217149   19788 trace_handler.go:64] tname=[getTask] tid=[e19fbbe5-b1b8-40c9-512b-6b35c37dab2b] tduration=[0] event=[request-out]

@@ -1,0 +1,7 @@
+Log file created at: 2018/08/18 16:05:26
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 16:05:26.885100   14639 root.go:52] :7878
+INFO     2018-08-18 16:05:39.800300   14639 task.go:43] tname=[default-trace] tid=[305bdaec-50f2-4932-6d3b-7e23b3954fa7] tduration=[0] call listTask
+INFO     2018-08-18 16:05:46.527079   14639 task.go:37] tname=[default-trace] tid=[b159c9c9-0445-4f30-7e14-5685483ce9d1] tduration=[0] call getTask

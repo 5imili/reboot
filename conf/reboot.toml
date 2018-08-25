@@ -1,2 +1,5 @@
 [server]
     listen=":7878"
+
+[dao]
+    connection="root:root@/reboot?charset=utf-8&parseTime=true"

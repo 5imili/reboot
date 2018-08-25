@@ -1,0 +1,17 @@
+Log file created at: 2018/08/18 16:10:11
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 16:10:11.224046   15299 root.go:52] :7878
+INFO     2018-08-18 16:10:14.955330   15299 trace_handler.go:57] tname=[getTask] tid=[c62755cf-a5e7-4262-6ae9-a02c15039bfb] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/money]
+INFO     2018-08-18 16:10:14.955360   15299 task.go:45] tname=[getTask] tid=[c62755cf-a5e7-4262-6ae9-a02c15039bfb] tduration=[0] call getTask
+INFO     2018-08-18 16:10:14.955370   15299 trace_handler.go:64] tname=[getTask] tid=[c62755cf-a5e7-4262-6ae9-a02c15039bfb] tduration=[0] event=[request-out]
+INFO     2018-08-18 16:10:20.921941   15299 trace_handler.go:57] tname=[listTask] tid=[8c3d5a99-ce08-4bd8-5e21-7f259218362f] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks]
+INFO     2018-08-18 16:10:20.921979   15299 task.go:51] tname=[listTask] tid=[8c3d5a99-ce08-4bd8-5e21-7f259218362f] tduration=[0] call listTask
+INFO     2018-08-18 16:10:20.921988   15299 trace_handler.go:64] tname=[listTask] tid=[8c3d5a99-ce08-4bd8-5e21-7f259218362f] tduration=[0] event=[request-out]
+INFO     2018-08-18 16:10:43.955462   15299 trace_handler.go:57] tname=[createTask] tid=[f045103b-c039-48b9-5d2e-b1627f558aa4] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[POST] url=[/reboot/api/v1/namespaces/chenchao/tasks]
+INFO     2018-08-18 16:10:43.955529   15299 task.go:57] tname=[createTask] tid=[f045103b-c039-48b9-5d2e-b1627f558aa4] tduration=[0] call createTask
+INFO     2018-08-18 16:10:43.955541   15299 trace_handler.go:64] tname=[createTask] tid=[f045103b-c039-48b9-5d2e-b1627f558aa4] tduration=[0] event=[request-out]
+INFO     2018-08-18 16:10:50.897733   15299 trace_handler.go:57] tname=[deleteTask] tid=[c1c35534-e760-47b4-5572-4702eb320b69] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[DELETE] url=[/reboot/api/v1/namespaces/chenchao/tasks/ddd]
+INFO     2018-08-18 16:10:50.897768   15299 task.go:63] tname=[deleteTask] tid=[c1c35534-e760-47b4-5572-4702eb320b69] tduration=[0] call deleteTask
+INFO     2018-08-18 16:10:50.897846   15299 trace_handler.go:64] tname=[deleteTask] tid=[c1c35534-e760-47b4-5572-4702eb320b69] tduration=[0] event=[request-out]

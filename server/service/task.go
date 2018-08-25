@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"github.com/leopoldxx/go-utils/trace"
+	"github.com/5imili/reboot/pkg/dao/mysql/types"
 )
 
 func (s *service) GetTask(ctx context.Context) error{
@@ -14,12 +15,18 @@ func (s *service) GetTask(ctx context.Context) error{
 func (s *service) ListTask(ctx context.Context) error{
 	tracer := trace.GetTraceFromContext(ctx)
 	tracer.Info("s.ListTask")
+
 	return nil
 }
 
-func (s *service) CreateTask(ctx context.Context) error{
+func (s *service) CreateTask(ctx context.Context,namespace string, resource string) error{
 	tracer := trace.GetTraceFromContext(ctx)
 	tracer.Info("s.CreateTask")
+	task := &types.Task{
+		NameSpace:namespace,
+		Resource:resource,
+	}
+	s.opt.DB.CreateTask(ctx,task)
 	return nil
 }
 

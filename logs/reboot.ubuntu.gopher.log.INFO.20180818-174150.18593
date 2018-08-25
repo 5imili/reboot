@@ -1,0 +1,5 @@
+Log file created at: 2018/08/18 17:41:50
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 17:41:50.366046   18593 root.go:52] :7878

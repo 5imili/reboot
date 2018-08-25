@@ -1,0 +1,42 @@
+Log file created at: 2018/08/18 17:36:01
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 17:36:01.177029   18182 root.go:52] :7878
+INFO     2018-08-18 17:36:10.054097   18182 authenticate_middleware.go:19] tname=[default-trace] tid=[2c4e8c13-80d0-4f96-4483-421146e40df5] tduration=[0] /reboot/api/v1/namespaces/chenchao/tasks/mod
+INFO     2018-08-18 17:36:10.054140   18182 trace_handler.go:57] tname=[getTask] tid=[e84b2516-7daf-46bb-414c-016176557464] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 17:36:10.054214   18182 task.go:50] tname=[getTask] tid=[e84b2516-7daf-46bb-414c-016176557464] tduration=[0] call getTask
+ERROR    2018-08-18 17:36:10.054289   18182 recover.go:30] tname=[getTask] tid=[e84b2516-7daf-46bb-414c-016176557464] tduration=[0] panic:goroutine 8 [running]:
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace.Stacks(0xc42000aa00, 0x55, 0x100, 0x8e)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/trace.go:181 +0xcf
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace.(*trace).Stack(0xc42005efc0, 0x0, 0x0, 0x0, 0xb5a780, 0xc400000000)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/trace.go:199 +0x37
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/middleware.RecoverWithTrace.func1.1.1.1(0xb21560, 0xc42005efc0, 0xb1de60, 0xc4201be000)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/middleware/recover.go:30 +0x72
+panic(0x8583a0, 0xb4aef0)
+	/home/gopher/go/src/runtime/panic.go:491 +0x283
+github.com/5imili/reboot/server/controller/task.(*task).getTask(0xc42000e108, 0xb1de60, 0xc4201be000, 0xc420090900)
+	/home/gopher/gopath/src/github.com/5imili/reboot/server/controller/task/task.go:51 +0xd6
+github.com/5imili/reboot/server/controller/task.(*task).(github.com/5imili/reboot/server/controller/task.getTask)-fm(0xb1de60, 0xc4201be000, 0xc420090900)
+	/home/gopher/gopath/src/github.com/5imili/reboot/server/controller/task/task.go:31 +0x48
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/middleware.RecoverWithTrace.func1.1.1(0xb1de60, 0xc4201be000, 0xc420090900)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/middleware/recover.go:34 +0xf8
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace.HandleFunc.func1(0xb1de60, 0xc4201be000, 0xc420090800)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/trace_handler.go:63 +0x4fc
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/middleware.RecoverWithTrace.func1.1(0xb1de60, 0xc4201be000, 0xc420090800)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/middleware/recover.go:41 +0x12d
+net/http.HandlerFunc.ServeHTTP(0xc4200debe0, 0xb1de60, 0xc4201be000, 0xc420090800)
+	/home/gopher/go/src/net/http/server.go:1918 +0x44
+github.com/5imili/reboot/server/utils.LoggingMiddleware.func1(0xb1de60, 0xc4201be000, 0xc420090800)
+	/home/gopher/gopath/src/github.com/5imili/reboot/server/utils/authenticate_middleware.go:20 +0x113
+net/http.HandlerFunc.ServeHTTP(0xc4200df2c0, 0xb1de60, 0xc4201be000, 0xc420090800)
+	/home/gopher/go/src/net/http/server.go:1918 +0x44
+github.com/5imili/reboot/vendor/github.com/gorilla/mux.(*Router).ServeHTTP(0xc42012f880, 0xb1de60, 0xc4201be000, 0xc420090800)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/gorilla/mux/mux.go:162 +0xed
+net/http.serverHandler.ServeHTTP(0xc4200852b0, 0xb1de60, 0xc4201be000, 0xc420090600)
+	/home/gopher/go/src/net/http/server.go:2619 +0xb4
+net/http.(*conn).serve(0xc4201aeaa0, 0xb1e5e0, 0xc42005c9c0)
+	/home/gopher/go/src/net/http/server.go:1801 +0x71d
+created by net/http.(*Server).Serve
+	/home/gopher/go/src/net/http/server.go:2720 +0x288
+INFO     2018-08-18 17:36:10.054546   18182 trace_handler.go:64] tname=[getTask] tid=[e84b2516-7daf-46bb-414c-016176557464] tduration=[0] event=[request-out]

@@ -1,0 +1,9 @@
+Log file created at: 2018/08/18 17:00:46
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 17:00:46.292120   17342 root.go:52] :7878
+INFO     2018-08-18 17:01:03.709186   17342 authenticate_middleware.go:19] tname=[default-trace] tid=[9c7161f4-463c-4ee0-4ed3-814861b8396d] tduration=[0] /reboot/api/v1/namespaces/chenchao/tasks/mod
+INFO     2018-08-18 17:01:03.709251   17342 trace_handler.go:57] tname=[getTask] tid=[dff6a9a7-e222-4766-651b-25453c9934e9] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 17:01:03.709275   17342 authenticate_middleware.go:28] tname=[getTask] tid=[dff6a9a7-e222-4766-651b-25453c9934e9] tduration=[0] call Authorization
+INFO     2018-08-18 17:01:03.709292   17342 trace_handler.go:64] tname=[getTask] tid=[dff6a9a7-e222-4766-651b-25453c9934e9] tduration=[0] event=[request-out]

@@ -1,0 +1,18 @@
+Log file created at: 2018/08/18 16:32:06
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 16:32:06.913880   16345 root.go:52] :7878
+INFO     2018-08-18 16:32:15.489804   16345 trace_handler.go:57] tname=[getTask] tid=[081d162a-1220-4193-64bb-c1bbb086fca1] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 16:32:15.489840   16345 authenticate_middleware.go:20] tname=[getTask] tid=[081d162a-1220-4193-64bb-c1bbb086fca1] tduration=[0] call AuthenticateMW
+INFO     2018-08-18 16:32:15.489852   16345 trace_handler.go:64] tname=[getTask] tid=[081d162a-1220-4193-64bb-c1bbb086fca1] tduration=[0] event=[request-out]
+INFO     2018-08-18 16:34:56.569479   16345 trace_handler.go:57] tname=[getTask] tid=[ae11f87e-ac16-4022-6a75-5763378e9f4a] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 16:34:56.569530   16345 authenticate_middleware.go:20] tname=[getTask] tid=[ae11f87e-ac16-4022-6a75-5763378e9f4a] tduration=[0] call AuthenticateMW
+INFO     2018-08-18 16:34:56.569540   16345 trace_handler.go:64] tname=[getTask] tid=[ae11f87e-ac16-4022-6a75-5763378e9f4a] tduration=[0] event=[request-out]
+INFO     2018-08-18 16:35:22.051418   16345 trace_handler.go:57] tname=[getTask] tid=[8d3fb475-4a21-4eff-482b-ca6c29177c27] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 16:35:22.051488   16345 authenticate_middleware.go:20] tname=[getTask] tid=[8d3fb475-4a21-4eff-482b-ca6c29177c27] tduration=[0] call AuthenticateMW
+INFO     2018-08-18 16:35:22.051509   16345 task.go:48] tname=[getTask] tid=[8d3fb475-4a21-4eff-482b-ca6c29177c27] tduration=[0] call getTask
+INFO     2018-08-18 16:35:22.051593   16345 trace_handler.go:64] tname=[getTask] tid=[8d3fb475-4a21-4eff-482b-ca6c29177c27] tduration=[0] event=[request-out]
+INFO     2018-08-18 16:35:37.800166   16345 trace_handler.go:57] tname=[getTask] tid=[ae233566-35cd-448e-74ed-812c26b621b3] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/mod]
+INFO     2018-08-18 16:35:37.800204   16345 authenticate_middleware.go:20] tname=[getTask] tid=[ae233566-35cd-448e-74ed-812c26b621b3] tduration=[0] call AuthenticateMW
+INFO     2018-08-18 16:35:37.800215   16345 trace_handler.go:64] tname=[getTask] tid=[ae233566-35cd-448e-74ed-812c26b621b3] tduration=[0] event=[request-out]

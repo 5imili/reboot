@@ -1,0 +1,41 @@
+Log file created at: 2018/08/18 15:15:14
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 15:15:14.456160   12729 root.go:52] :7878
+FATAL    2018-08-18 15:15:14.457025   12729 root.go:58] listen tcp :7878: bind: address already in use
+goroutine 1 [running]:
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.stacks(0xc42000e001, 0xc420276000, 0x8cf, 0x2710)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:811 +0xcf
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.(*loggingT).output(0xb50660, 0xc400000003, 0xc4200ae2c0, 0xb03b4f, 0x7, 0x3a, 0x0)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:765 +0x197
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.(*loggingT).printDepth(0xb50660, 0xc400000003, 0x1, 0xc42012fc80, 0x1, 0x1)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:678 +0x12a
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.(*loggingT).print(0xb50660, 0xc400000003, 0xc42012fc80, 0x1, 0x1)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:669 +0x5a
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.Fatal(0xc42012fc80, 0x1, 0x1)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:1170 +0x53
+github.com/5imili/reboot/cmd.glob..func1(0xb491e0, 0xc4200e06a0, 0x0, 0x2)
+	/home/gopher/gopath/src/github.com/5imili/reboot/cmd/root.go:58 +0x1c9
+github.com/5imili/reboot/vendor/github.com/spf13/cobra.(*Command).execute(0xb491e0, 0xc4200100a0, 0x2, 0x2, 0xb491e0, 0xc4200100a0)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/spf13/cobra/command.go:766 +0x2c1
+github.com/5imili/reboot/vendor/github.com/spf13/cobra.(*Command).ExecuteC(0xb491e0, 0xc420092400, 0x8ca74a, 0x6)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/spf13/cobra/command.go:852 +0x334
+github.com/5imili/reboot/vendor/github.com/spf13/cobra.(*Command).Execute(0xb491e0, 0x0, 0x17)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/spf13/cobra/command.go:800 +0x2b
+github.com/5imili/reboot/cmd.Execute()
+	/home/gopher/gopath/src/github.com/5imili/reboot/cmd/root.go:65 +0x31
+main.main()
+	/home/gopher/gopath/src/github.com/5imili/reboot/main.go:20 +0x20
+
+goroutine 5 [chan receive]:
+github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.(*loggingT).flushDaemon(0xb50660)
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:924 +0x9f
+created by github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog.init.0
+	/home/gopher/gopath/src/github.com/5imili/reboot/vendor/github.com/leopoldxx/go-utils/trace/glog/glog.go:434 +0xc4
+
+goroutine 6 [chan receive]:
+github.com/5imili/reboot/cmd.glob..func1.1(0xc42005c480)
+	/home/gopher/gopath/src/github.com/5imili/reboot/cmd/root.go:47 +0x83
+created by github.com/5imili/reboot/cmd.glob..func1
+	/home/gopher/gopath/src/github.com/5imili/reboot/cmd/root.go:46 +0x9f

@@ -1,0 +1,8 @@
+Log file created at: 2018/08/18 16:06:14
+Running on machine: ubuntu
+Binary: Built with gc go1.9.2 for linux/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+INFO     2018-08-18 16:06:14.692139   14954 root.go:52] :7878
+INFO     2018-08-18 16:06:21.313197   14954 trace_handler.go:57] tname=[getTask] tid=[ec6eaaf3-f254-43f8-71e5-ccc940b0d0a7] tduration=[0] event=[request-in] remote=[127.0.0.1] route=[127.0.0.1] method=[GET] url=[/reboot/api/v1/namespaces/chenchao/tasks/money]
+INFO     2018-08-18 16:06:21.313278   14954 task.go:36] tname=[getTask] tid=[ec6eaaf3-f254-43f8-71e5-ccc940b0d0a7] tduration=[0] call getTask
+INFO     2018-08-18 16:06:21.313323   14954 trace_handler.go:64] tname=[getTask] tid=[ec6eaaf3-f254-43f8-71e5-ccc940b0d0a7] tduration=[0] event=[request-out]
